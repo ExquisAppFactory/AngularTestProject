@@ -1,0 +1,18 @@
+services:
+  # PostgreSQL database container
+  postgres:
+    image: postgres:14-alpine # Use the official Postgres image
+    environment:
+      POSTGRES_PASSWORD: postgres # Replace with your desired password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres # Replace with your desired database name
+      POSTGRES_PORT: 5434
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persist database data
+    ports:
+      - '5433:5434'
+    command: ["postgres", "-c", "port=5434"] # Command to set the custom port
+
+# Define a volume to persist Postgres data
+volumes:
+  postgres_data: {}

@@ -1,11 +1,14 @@
-import {Column, Entity } from "typeorm";
+import {Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-type InvoiceStatus = 'Paid' | 'Ongoing' | 'Unpaid'| 'Unavailable'
+export type InvoiceStatus = 'Paid' | 'Ongoing' | 'Unpaid'| 'Unavailable'
 
 @Entity()
 export class Invoice {
     @PrimaryGeneratedColumn('uuid')
     invoiceId: string;
+
+    @Column()
+    userId: string;
 
     @Column()
     amount: string;

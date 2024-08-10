@@ -1,7 +1,46 @@
-<div>Angular test project</div>
+<div class="w-full bg-gray-200">
+  <header>
+    <div class="p-6 bg-gray-100">
+      <h3 class=" text-2xl font-bold">Dashboard</h3>
+    </div>
+  </header>
+  <main>
+    <div class="border m-3 shadow rounded-2xl bg-white">
+      <div class="flex flex-row gap-5">
+        <div class="w-1/2">
+          <app-invoice-summary-card/>
+        </div>
+        <div class="w-1/2">
+          <app-invoice-summary-card/>
+        </div>
+      </div>
+      <div class="border m-3 shadow rounded-lg bg-white">
+        <div class="flex flex-row justify-between py-3 px-6">
+          <div class="flex">
+            <p class="font-bold">Invoice Summary</p>
+            <div class="arrow-up-slant ml-2 relative">
+              <ng-icon class="mb-[-13px]" size="18px" name="saxArrowLeftOutline"></ng-icon>
+            </div>
+          </div>
+          <div class="flex flex-row items-center gap-4">
+            @for(status of statusData; track status.statusText) {
+            <div class="flex flex-row items-center">
+              <p class="text-2xl" [style.color]="status.color">⦿</p>
+              <p class="ml-2">{{status.statusText}}</p>
+            </div>
+          }
+          </div>
+        </div>
+        <div>
+          <app-invocie-table [headCells] ="headCells" [rows] = "formattedData"/>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
 
 <!-- Header -->
 <!-- Total card -->
- <!-- Table component -->
+<!-- Table component -->
 <!-- Edit modal -->
- <!-- Action modal -->
+<!-- Action modal -->

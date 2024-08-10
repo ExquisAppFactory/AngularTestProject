@@ -1,0 +1,29 @@
+<div class="h-full mx-4 mb-5 border rounded-lg">
+  <table class="min-w-full table-auto">
+    <thead class="bg-gray-200">
+      <tr>
+        @for (cell of headCells; track cell.id) {
+        <th class="py-3 text-left pl-6">
+          <p class="font-bold text-black">{{ cell.label }}</p>
+        </th>
+        }
+      </tr>
+    </thead>
+    @if (rows.length > 0){
+    <tbody class="overflow-scroll">
+        @for (row of rows; track row.id){
+        <tr>
+            @for (cell of rowList(row); track cell.id){
+                <td class="py-3 text-left pl-6 border-b-2" [innerHtml] ="cell"></td>
+            }
+        </tr>
+    }
+    </tbody>
+}
+  </table>
+  @if(rows.length === 0) {
+    <div  class="w-full p-5">
+        <div class="text-center">No data</div>
+    </div >
+}
+</div>
